@@ -25,6 +25,7 @@ import org.apache.parquet.column.values.ValuesWriter;
 import org.apache.parquet.column.values.delta.DeltaBinaryPackingValuesWriter;
 import org.apache.parquet.column.values.delta.DeltaBinaryPackingValuesWriterForLong;
 import org.apache.parquet.column.values.deltastrings.DeltaByteArrayWriter;
+import org.apache.parquet.column.values.deltalengthbytearray.DeltaLengthByteArrayValuesWriter;
 import org.apache.parquet.column.values.dictionary.DictionaryValuesWriter;
 import org.apache.parquet.column.values.dictionary.DictionaryValuesWriter.*;
 import org.apache.parquet.column.values.fallback.FallbackValuesWriter;
@@ -111,7 +112,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.BINARY,
       WriterVersion.PARQUET_2_0,
       true,
-      PlainBinaryDictionaryValuesWriter.class, PlainValuesWriter.class);
+      PlainBinaryDictionaryValuesWriter.class, DeltaLengthByteArrayValuesWriter.class);
   }
 
   @Test
@@ -120,7 +121,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.BINARY,
       WriterVersion.PARQUET_2_0,
       false,
-      PlainValuesWriter.class);
+      DeltaLengthByteArrayValuesWriter.class);
   }
 
   @Test
