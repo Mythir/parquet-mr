@@ -81,7 +81,7 @@ public class TestParquetWriterNewPage {
     expected.put("10-" + PARQUET_1_0, PLAIN_DICTIONARY);
     expected.put("1000-" + PARQUET_1_0, PLAIN);
     expected.put("10-" + PARQUET_2_0, RLE_DICTIONARY);
-    expected.put("1000-" + PARQUET_2_0, PLAIN);
+    expected.put("1000-" + PARQUET_2_0, DELTA_BYTE_ARRAY);
     for (int modulo : asList(10, 1000)) {
       for (WriterVersion version : WriterVersion.values()) {
         Path file = new Path(root, version.name() + "_" + modulo);

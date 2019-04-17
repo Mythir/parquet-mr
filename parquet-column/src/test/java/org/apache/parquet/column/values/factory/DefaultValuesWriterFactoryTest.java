@@ -111,7 +111,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.BINARY,
       WriterVersion.PARQUET_2_0,
       true,
-      PlainBinaryDictionaryValuesWriter.class, PlainValuesWriter.class);
+      PlainBinaryDictionaryValuesWriter.class, DeltaByteArrayWriter.class);
   }
 
   @Test
@@ -120,7 +120,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.BINARY,
       WriterVersion.PARQUET_2_0,
       false,
-      PlainValuesWriter.class);
+      DeltaByteArrayWriter.class);
   }
 
   @Test
@@ -147,7 +147,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.INT32,
       WriterVersion.PARQUET_2_0,
       true,
-      PlainIntegerDictionaryValuesWriter.class, PlainValuesWriter.class);
+      PlainIntegerDictionaryValuesWriter.class, DeltaBinaryPackingValuesWriter.class);
   }
 
   @Test
@@ -156,7 +156,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.INT32,
       WriterVersion.PARQUET_2_0,
       false,
-      PlainValuesWriter.class);
+      DeltaBinaryPackingValuesWriter.class);
   }
 
   @Test
@@ -183,7 +183,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.INT64,
       WriterVersion.PARQUET_2_0,
       true,
-      PlainLongDictionaryValuesWriter.class, PlainValuesWriter.class);
+      PlainLongDictionaryValuesWriter.class, DeltaBinaryPackingValuesWriterForLong.class);
   }
 
   @Test
@@ -192,7 +192,7 @@ public class DefaultValuesWriterFactoryTest {
       PrimitiveTypeName.INT64,
       WriterVersion.PARQUET_2_0,
       false,
-      PlainValuesWriter.class);
+      DeltaBinaryPackingValuesWriterForLong.class);
   }
 
   @Test
