@@ -263,7 +263,7 @@ public class ParquetWriter<T> implements Closeable {
         conf);
   }
 
-  ParquetWriter(
+  public ParquetWriter(
       OutputFile file,
       ParquetFileWriter.Mode mode,
       WriteSupport<T> writeSupport,
@@ -346,7 +346,7 @@ public class ParquetWriter<T> implements Closeable {
     private int rowGroupSize = DEFAULT_BLOCK_SIZE;
     private int maxPaddingSize = MAX_PADDING_SIZE_DEFAULT;
     private boolean enableValidation = DEFAULT_IS_VALIDATING_ENABLED;
-    private ParquetProperties.Builder encodingPropsBuilder =
+    public ParquetProperties.Builder encodingPropsBuilder =
         ParquetProperties.builder();
 
     protected Builder(Path path) {
